@@ -1,10 +1,5 @@
-#include <sys/types.h>
-#include <sys/stat.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <errno.h>
-#include <syslog.h>
-#include <string.h>
 #include "mraa.h"
 
 #define OUTPUT_ON 1
