@@ -2,14 +2,8 @@
 #include <stdlib.h>
 #include "mraa.h"
 
-#define OUTPUT_ON 1
-
 int main(int argc, char **argv) {
     int dur;
-    int i2c_bus;
-    int i2c_adapter;
-
-    int state = 0;
 
     if (argc != 2) {
         fprintf(stdout, "usage: pump duration\n");
@@ -26,7 +20,6 @@ int main(int argc, char **argv) {
         return EXIT_FAILURE;
     }
 
-
     mraa_init();
     fprintf(stdout, "Output HIGH for %d seconds\n", dur);
     fflush(stdout);
@@ -39,22 +32,6 @@ int main(int argc, char **argv) {
     mraa_gpio_write(gpio, 1);
     sleep(atoi(argv[1]));
     mraa_gpio_write(gpio, 0);
-
-    /*while(1) {
-        if (state != OUTPUT_ON) {
-            fprintf(stdout, "output 0->1\n");
-            mraa_gpio_write(gpio, 1);
-            state = 1;
-        } else {
-            fprintf(stdout, "output 1->0\n");
-            mraa_gpio_write(gpio, 0);
-            state = 0;
-        }
-        mraa_gpio_write(gpio, 1);
-        sleep(5);
-    }
-    */
-
 
     mraa_gpio_close(gpio);
 
