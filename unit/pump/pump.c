@@ -30,7 +30,7 @@ int main(int argc, char **argv) {
     mraa_gpio_write(gpio, 0);
 
     mraa_gpio_write(gpio, 1);
-    sleep(atoi(argv[1]));
+    sleep((unsigned int) atoi(argv[1]));
     mraa_gpio_write(gpio, 0);
 
     mraa_gpio_close(gpio);
