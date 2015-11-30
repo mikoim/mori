@@ -13,8 +13,8 @@ int main(int argc, char **argv) {
     dur = atoi(argv[1]);
 
     if (dur > 30) {
-        fprintf(stdout, "Duration long\n");
-        //return EXIT_FAILURE;
+        fprintf(stdout, "Duration is too long\n");
+        return EXIT_FAILURE;
     } else if (dur <= 0) {
         fprintf(stdout, "Duration must be positive\n");
         return EXIT_FAILURE;
@@ -36,5 +36,6 @@ int main(int argc, char **argv) {
     mraa_gpio_close(gpio);
 
     mraa_deinit();
-    return MRAA_SUCCESS;
+
+    return EXIT_SUCCESS;
 }
